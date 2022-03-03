@@ -19,4 +19,16 @@ export async function getPlanets() {
     return json.results;
 }
 
-// To Do: write species function
+export async function getStarships() {
+    let url = 'https://swapi.dev/api/starships';
+    const resp = await fetch(url);
+    const json = await resp.json();
+    return json.results;
+}
+
+export async function getVehicles() {
+    let url = 'https://swapi.dev/api/vehicles';
+    const resp = await fetch(url);
+    const json = await resp.json();
+    return json.results;
+}

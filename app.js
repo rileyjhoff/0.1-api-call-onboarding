@@ -1,5 +1,5 @@
 // import functions
-import { getPeople, getSpecies, getPlanets } from './fetch.js';
+import { getPeople, getSpecies, getPlanets, getStarships, getVehicles } from './fetch.js';
 
 // console.log(getPeople);
 
