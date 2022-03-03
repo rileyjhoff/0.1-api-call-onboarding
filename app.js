@@ -1,5 +1,5 @@
 // import functions
-import { getPeople, getSpecies } from './fetch.js';
+import { getPeople, getSpecies, getPlanets } from './fetch.js';
 
 // console.log(getPeople);
 
@@ -18,9 +18,9 @@ async function loadPeople() {
     for (let people of peopleIndex) {
         const clone = template.content.cloneNode(true);
 
-        const name = clone.querySelector('h2');
-        const birth_year = clone.querySelector('h6');
-        const mass = clone.querySelector('h5');
+        const name = clone.querySelector('#one');
+        const birth_year = clone.querySelector('#two');
+        const mass = clone.querySelector('#three');
         
         name.textContent = 'Name: ' + people.name;
         birth_year.textContent = 'Birth Year: ' + people.birth_year;
@@ -38,13 +38,33 @@ async function loadSpecies() {
     for (let species of speciesIndex) {
         const clone = template.content.cloneNode(true);
 
-        const name = clone.querySelector('h2');
-        const average_lifespan = clone.querySelector('h6');
-        const classification = clone.querySelector('h5');
+        const name = clone.querySelector('#one');
+        const average_lifespan = clone.querySelector('#two');
+        const classification = clone.querySelector('#three');
         
         name.textContent = 'Name: ' + species.name;
         average_lifespan.textContent = 'Average Lifespan: ' + species.average_lifespan;
         classification.textContent = 'Classification: ' + species.classification;
+
+        list.appendChild(clone);
+    }
+}
+
+async function loadPlanets() {
+    const planetsIndex = await getPlanets();
+
+    list.classList.add('planets');
+
+    for (let planets of planetsIndex) {
+        const clone = template.content.cloneNode(true);
+
+        const name = clone.querySelector('#one');
+        const terrain = clone.querySelector('#two');
+        const climate = clone.querySelector('#three');
+        
+        name.textContent = 'Name: ' + planets.name;
+        terrain.textContent = 'Terrain: ' + planets.terrain;
+        climate.textContent = 'Climate: ' + planets.climate;
 
         list.appendChild(clone);
     }
@@ -56,13 +76,14 @@ selectEl.addEventListener('change', async(e) => {
     const selected = e.target.value;
 
     if (selected === 'people') {
-        list.classList.remove('species');
         list.innerHTML = '';
         await loadPeople();
     } else if (selected === 'species') {
-        list.classList.remove('people');
         list.innerHTML = '';
         await loadSpecies();
+    } else if (selected === 'planets') {
+        list.innerHTML = '';
+        await loadPlanets();
     }
 });
 

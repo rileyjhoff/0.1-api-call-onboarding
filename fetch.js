@@ -12,4 +12,11 @@ export async function getSpecies() {
     return json.results;
 }
 
+export async function getPlanets() {
+    let url = 'https://swapi.dev/api/planets';
+    const resp = await fetch(url);
+    const json = await resp.json();
+    return json.results;
+}
+
 // To Do: write species function
