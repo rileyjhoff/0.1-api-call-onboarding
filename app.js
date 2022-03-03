@@ -22,9 +22,9 @@ async function loadPeople() {
         const birth_year = clone.querySelector('#two');
         const mass = clone.querySelector('#three');
         
-        name.textContent = 'Name: ' + people.name;
+        name.textContent = people.name;
         birth_year.textContent = 'Birth Year: ' + people.birth_year;
-        mass.textContent = 'Weight: ' + people.mass;
+        mass.textContent = 'Weight: ' + people.mass + 'kg';
 
         list.appendChild(clone);
     }
@@ -42,7 +42,7 @@ async function loadSpecies() {
         const average_lifespan = clone.querySelector('#two');
         const classification = clone.querySelector('#three');
         
-        name.textContent = 'Name: ' + species.name;
+        name.textContent = species.name;
         average_lifespan.textContent = 'Average Lifespan: ' + species.average_lifespan;
         classification.textContent = 'Classification: ' + species.classification;
 
@@ -62,7 +62,7 @@ async function loadPlanets() {
         const terrain = clone.querySelector('#two');
         const climate = clone.querySelector('#three');
         
-        name.textContent = 'Name: ' + planets.name;
+        name.textContent = planets.name;
         terrain.textContent = 'Terrain: ' + planets.terrain;
         climate.textContent = 'Climate: ' + planets.climate;
 
