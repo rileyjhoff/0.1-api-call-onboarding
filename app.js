@@ -1,15 +1,15 @@
-// import functions
+// import functions from fetch.js
 import { getPeople, getSpecies, getPlanets, getStarships, getVehicles } from './fetch.js';
 
-// console.log(getPeople);
 
 // grab DOM elements
 const template = document.querySelector('#template');
 const selectEl = document.querySelector('select');
 const list = document.querySelector('#list');
 
-// console.log(template, selectEl, list);
 
+// write functions to render data on page
+// function to render people data
 async function loadPeople() {
     const peopleIndex = await getPeople();
 
@@ -30,6 +30,7 @@ async function loadPeople() {
     }
 }
 
+// function to render species data
 async function loadSpecies() {
     const speciesIndex = await getSpecies();
 
@@ -50,6 +51,7 @@ async function loadSpecies() {
     }
 }
 
+// function to render planets data
 async function loadPlanets() {
     const planetsIndex = await getPlanets();
 
@@ -69,9 +71,50 @@ async function loadPlanets() {
         list.appendChild(clone);
     }
 }
+// function to render starships data
+async function loadStarships() {
+    const starshipsIndex = await getStarships();
+
+    list.classList.add('starships');
+
+    for (let starships of starshipsIndex) {
+        const clone = template.content.cloneNode(true);
+
+        const name = clone.querySelector('#one');
+        const manufacturer = clone.querySelector('#two');
+        const crew = clone.querySelector('#three');
+        
+        name.textContent = starships.name;
+        manufacturer.textContent = 'Manufacturer: ' + starships.manufacturer;
+        crew.textContent = 'Crew: ' + starships.crew;
+
+        list.appendChild(clone);
+    }
+}
+
+// function to render vehicles data
+async function loadVehicles() {
+    const vehiclesIndex = await getVehicles();
+
+    list.classList.add('vehicles');
+
+    for (let vehicles of vehiclesIndex) {
+        const clone = template.content.cloneNode(true);
+
+        const name = clone.querySelector('#one');
+        const manufacturer = clone.querySelector('#two');
+        const crew = clone.querySelector('#three');
+        
+        name.textContent = vehicles.name;
+        manufacturer.textContent = 'Manufacturer: ' + vehicles.manufacturer;
+        crew.textContent = 'Crew: ' + vehicles.crew;
+
+        list.appendChild(clone);
+    }
+}
+
 
 // set event listeners 
-
 selectEl.addEventListener('change', async(e) => {
     const selected = e.target.value;
 
@@ -84,6 +127,12 @@ selectEl.addEventListener('change', async(e) => {
     } else if (selected === 'planets') {
         list.innerHTML = '';
         await loadPlanets();
+    } else if (selected === 'starships') {
+        list.innerHTML = '';
+        await loadStarships();
+    } else if (selected === 'vehicles') {
+        list.innerHTML = '';
+        await loadVehicles();
     }
 });
 
