@@ -111,13 +111,13 @@ async function loadStarships() {
         name.textContent = starships.name;
         manufacturer.textContent = 'Manufacturer: ' + starships.manufacturer;
         cost_in_credits.textContent = 'Cost: ' + starships.cost_in_credits + ' credits';
-        length.textContent = 'Length: ' + starships.length;
+        length.textContent = 'Length: ' + starships.length + ' meters';
         crew.textContent = 'Crew: ' + starships.crew;
         passengers.textContent = 'Passengers: ' + starships.passengers;
         cargo_capacity.textContent = 'Cargo Capacity: ' + starships.cargo_capacity;
         consumables.textContent = 'Consumables: ' + starships.consumables;
         hyperdrive_rating.textContent = 'Hyperdrive Rating: ' + starships.hyperdrive_rating;
-        MGLT.textContent = 'MGLT: ' + starships.MGLT;
+        MGLT.textContent = 'Megalight per hour: ' + starships.MGLT;
         max_atmosphering_speed.textContent = 'Max Atmosphering Speed: ' + starships.max_atmosphering_speed;
 
         list.appendChild(clone);
@@ -135,11 +135,23 @@ async function loadVehicles() {
 
         const name = clone.querySelector('#one');
         const manufacturer = clone.querySelector('#two');
-        const crew = clone.querySelector('#three');
+        const cost_in_credits = clone.querySelector('#three');
+        const length = clone.querySelector('#four');
+        const crew = clone.querySelector('#five');
+        const passengers = clone.querySelector('#six');
+        const cargo_capacity = clone.querySelector('#seven');
+        const consumables = clone.querySelector('#eight');
+        const max_atmosphering_speed = clone.querySelector('#eleven');
         
         name.textContent = vehicles.name;
         manufacturer.textContent = 'Manufacturer: ' + vehicles.manufacturer;
+        cost_in_credits.textContent = 'Cost: ' + vehicles.cost_in_credits + ' credits';
+        length.textContent = 'Length: ' + vehicles.length + ' meters';
         crew.textContent = 'Crew: ' + vehicles.crew;
+        passengers.textContent = 'Passengers: ' + vehicles.passengers;
+        cargo_capacity.textContent = 'Cargo Capacity: ' + vehicles.cargo_capacity;
+        consumables.textContent = 'Consumables: ' + vehicles.consumables;
+        max_atmosphering_speed.textContent = 'Max Atmosphering Speed: ' + vehicles.max_atmosphering_speed;
 
         list.appendChild(clone);
     }
