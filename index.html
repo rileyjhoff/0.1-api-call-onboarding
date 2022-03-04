@@ -6,17 +6,41 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
         <link rel="stylesheet" href="./styles/style.css" />
-       
 
-        <title>Cool Web</title>
+        <title>Star Wars Sabermetrics</title>
     </head>
 
     <body>
         <header>
-            <h1>Cool Web Project</h1>
+            <h1>Star Wars Stuff</h1>
         </header>
+        <template id="template">
+            <h2 id="one"></h2>
+            <h4 id="two"></h4>
+            <h4 id="three"></h4>
+            <h4 id="four"></h4>
+            <h4 id="five"></h4>
+            <h4 id="six"></h4>
+            <h4 id="seven"></h4>
+            <h4 id="eight"></h4>
+            <h4 id="nine"></h4>
+            <h4 id="ten"></h4>
+            <h4 id="eleven"></h4>
+        </template>
 
-        <main></main>
+        <main>
+            <select name="api" id="api">
+                <option value="none">Please Select an Option</option>
+                <option value="people">People</option>
+                <option value="species">Species</option>
+                <option value="planets">Planets</option>
+                <option value="starships">Starships</option>
+                <option value="vehicles">Vehicles</option>
+            </select>
+            <section id="error-message">
+                <ul id="list"></ul>
+            </section>
+        </main>
 
         <footer>&copy; 2021 Aspiring Software Developer</footer>
 
