@@ -42,12 +42,16 @@ async function loadSpecies() {
         const clone = template.content.cloneNode(true);
 
         const name = clone.querySelector('#one');
-        const average_lifespan = clone.querySelector('#two');
-        const classification = clone.querySelector('#three');
+        const classification = clone.querySelector('#two');
+        const language = clone.querySelector('#three');
+        const average_height = clone.querySelector('#four');
+        const average_lifespan = clone.querySelector('#five');
         
         name.textContent = species.name;
-        average_lifespan.textContent = 'Average Lifespan: ' + species.average_lifespan;
         classification.textContent = 'Classification: ' + species.classification;
+        language.textContent = 'Language: ' + species.language;
+        average_height.textContent = 'Average Height: ' + species.average_height;
+        average_lifespan.textContent = 'Average Lifespan: ' + species.average_lifespan;
 
         list.appendChild(clone);
     }
