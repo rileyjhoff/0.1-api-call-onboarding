@@ -20,10 +20,12 @@ async function loadPeople() {
 
         const name = clone.querySelector('#one');
         const birth_year = clone.querySelector('#two');
-        const mass = clone.querySelector('#three');
+        const height = clone.querySelector('#three');
+        const mass = clone.querySelector('#four');
         
         name.textContent = people.name;
         birth_year.textContent = 'Birth Year: ' + people.birth_year;
+        height.textContent = 'Height: ' + people.height + 'cm';        
         mass.textContent = 'Weight: ' + people.mass + 'kg';
 
         list.appendChild(clone);
