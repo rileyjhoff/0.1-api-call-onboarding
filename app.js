@@ -67,12 +67,22 @@ async function loadPlanets() {
         const clone = template.content.cloneNode(true);
 
         const name = clone.querySelector('#one');
-        const terrain = clone.querySelector('#two');
-        const climate = clone.querySelector('#three');
+        const population = clone.querySelector('#two');
+        const terrain = clone.querySelector('#three');
+        const climate = clone.querySelector('#four');
+        const gravity = clone.querySelector('#five');
+        const diameter = clone.querySelector('#six');
+        const rotation_period = clone.querySelector('#seven');
+        const orbital_period = clone.querySelector('#eight');
         
         name.textContent = planets.name;
+        population.textContent = 'Population: ' + planets.population;
         terrain.textContent = 'Terrain: ' + planets.terrain;
         climate.textContent = 'Climate: ' + planets.climate;
+        gravity.textContent = 'Gravity: ' + planets.gravity;
+        diameter.textContent = 'Diameter: ' + planets.diameter;
+        rotation_period.textContent = 'Rotation Period: ' + planets.rotation_period;
+        orbital_period.textContent = 'Orbital Period: ' + planets.orbital_period;
 
         list.appendChild(clone);
     }
